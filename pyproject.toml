@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medrsi"
+version = "0.1.0"
+description = "MedRSI: recursive self-improvement of medical agents through clinically aligned self-evolution"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+dependencies = []  # the core framework is pure python; pick a model backend below
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]           # OpenAI and any OpenAI-compatible server (vLLM, Ollama, ...)
+anthropic = ["anthropic>=0.40"]    # Claude
+all = ["openai>=1.0", "anthropic>=0.40"]
+
+[project.scripts]
+medrsi = "medrsi.cli:main"
+
+[tool.setuptools]
+packages = ["medrsi"]
